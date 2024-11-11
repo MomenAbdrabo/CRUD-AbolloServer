@@ -1,0 +1,47 @@
+query {
+  getAllPost {
+    title,
+    content
+  }
+}
+//=================createNewPost===============//
+
+mutation($NewPost: NewPost!) {
+  createNewPost(newPost: $NewPost) {
+    content
+    title
+  }
+}
+
+  "NewPost": {
+    "title": "My New Post",
+    "content": "This is the content of the post.",
+  }
+}
+//=================updatePostById===============//
+mutation($id: ID!, $updatedPost: PostInput!) {
+  updatePostById(updatedPost: $updatedPost, id: $id) {
+    id
+    title
+    content
+  }
+}
+
+
+mutation delete_Post_By_Id($id: ID!) {
+  deletePostById(id: $id) {
+    id
+    message
+    
+  }
+}
+
+query get_post_by_id($id:ID!){
+  getPostById(id:$id){
+    title
+    content
+    createdAt
+    updatedAt
+    id
+  }
+}
